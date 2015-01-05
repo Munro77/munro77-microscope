@@ -1,15 +1,15 @@
 /**
  * Created by Rob on 02/01/2015.
  */
-Template.errors.helpers({
+Template.meteorErrors.helpers({
     errors: function() {
-        return Errors.find();
+        return Errors.collection.find();
     }
 });
 
-Template.errors.rendered = function() {
+Template.meteorError.rendered = function() {
     var error = this.data;
     Meteor.setTimeout(function () {
-        Errors.remove(error._id);
+        Errors.collection.remove(error._id);
     }, 3000);
 };
